@@ -31,19 +31,34 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      <li className="link-style">
-        <NavLink to="/dashboard" onClick={() => setShowMenu(!showMenu)}>
-          Dashboard
-        </NavLink>
-      </li>
-      <li>
-        <button onClick={handleLogOut}>LogOut</button>
-      </li>
-      <li className="link-style">
-        <NavLink to="/login" onClick={() => setShowMenu(!showMenu)}>
-          Login
-        </NavLink>
-      </li>
+      {user ? (
+        <>
+          <li className="link-style">
+            <NavLink to="/dashboard" onClick={() => setShowMenu(!showMenu)}>
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <button onClick={handleLogOut}>LogOut</button>
+          </li>
+          <img
+            title={user?.displayName}
+            className="w-10 h-10 hidden md:block rounded-full border border-slate-300 dark:border-slate-600"
+            src={
+              user?.photoURL
+                ? `${user?.photoURL}`
+                : "https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg"
+            }
+            alt=""
+          />
+        </>
+      ) : (
+        <li className="link-style">
+          <NavLink to="/login" onClick={() => setShowMenu(!showMenu)}>
+            Login
+          </NavLink>
+        </li>
+      )}
     </>
   );
   return (
