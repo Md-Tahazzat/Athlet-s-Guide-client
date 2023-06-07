@@ -1,31 +1,40 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(true);
+  const [theme, setTheme] = useState("light");
+
+  //  Dark and Light mode functionality
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    document.documentElement.classList.toggle("dark");
+  };
+
   const listItems = (
     <>
-      <li>
+      <li className="hover:text-slate-900 dark:hover:text-slate-50">
         <NavLink to="/" onClick={() => setShowMenu(!showMenu)}>
           Home
         </NavLink>
       </li>
-      <li>
+      <li className="hover:text-slate-900 dark:hover:text-slate-50">
         <NavLink to="/instructors" onClick={() => setShowMenu(!showMenu)}>
           Instructors
         </NavLink>
       </li>
-      <li>
+      <li className="hover:text-slate-900 dark:hover:text-slate-50">
         <NavLink to="/classes" onClick={() => setShowMenu(!showMenu)}>
           Classes
         </NavLink>
       </li>
-      <li>
+      <li className="hover:text-slate-900 dark:hover:text-slate-50">
         <NavLink to="/dashboard" onClick={() => setShowMenu(!showMenu)}>
           Dashboard
         </NavLink>
       </li>
-      <li>
+      <li className="hover:text-slate-900 dark:hover:text-slate-50">
         <NavLink to="/login" onClick={() => setShowMenu(!showMenu)}>
           Login
         </NavLink>
@@ -59,7 +68,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className={`menu menu-sm dropdown-content ${
+              className={`menu lg:text-md menu-sm dropdown-content ${
                 !showMenu && "hidden"
               } mt-3 p-2 shadow rounded-box w-52`}
             >
@@ -69,10 +78,17 @@ const Navbar = () => {
           <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{listItems}</ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+          <ul className="menu flex items-center lg:text-base menu-horizontal px-1">
+            {listItems}
+            <li className="hover:text-slate-900 dark:hover:text-slate-50">
+              <button
+                className="hover:scale-110 text-[1.2rem] duration-200"
+                onClick={toggleTheme}
+              >
+                {theme === "light" ? <FaMoon></FaMoon> : <FaSun></FaSun>}
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
