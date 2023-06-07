@@ -4,6 +4,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { handleLogOut, user, loading } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(true);
   const [theme, setTheme] = useState("light");
 
@@ -34,6 +35,9 @@ const Navbar = () => {
         <NavLink to="/dashboard" onClick={() => setShowMenu(!showMenu)}>
           Dashboard
         </NavLink>
+      </li>
+      <li>
+        <button onClick={handleLogOut}>LogOut</button>
       </li>
       <li className="link-style">
         <NavLink to="/login" onClick={() => setShowMenu(!showMenu)}>
