@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#background-image {
+  background-image: url("https://i.ibb.co/NCZdrSK/sports-background-design-abstract-modern-260nw-2071798712-1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.link-style {
+  @apply hover:text-slate-900 dark:hover:text-slate-50;
+}
+
+.active {
+  @apply bg-blue-600 text-white;
+}
+.active:hover {
+  @apply bg-blue-600 text-white;
+}
+.active:focus {
+  @apply bg-blue-600 text-white;
+}

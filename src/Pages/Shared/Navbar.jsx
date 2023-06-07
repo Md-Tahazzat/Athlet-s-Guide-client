@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -14,27 +15,27 @@ const Navbar = () => {
 
   const listItems = (
     <>
-      <li className="hover:text-slate-900 dark:hover:text-slate-50">
+      <li className="link-style">
         <NavLink to="/" onClick={() => setShowMenu(!showMenu)}>
           Home
         </NavLink>
       </li>
-      <li className="hover:text-slate-900 dark:hover:text-slate-50">
+      <li className="link-style">
         <NavLink to="/instructors" onClick={() => setShowMenu(!showMenu)}>
           Instructors
         </NavLink>
       </li>
-      <li className="hover:text-slate-900 dark:hover:text-slate-50">
+      <li className="link-style">
         <NavLink to="/classes" onClick={() => setShowMenu(!showMenu)}>
           Classes
         </NavLink>
       </li>
-      <li className="hover:text-slate-900 dark:hover:text-slate-50">
+      <li className="link-style">
         <NavLink to="/dashboard" onClick={() => setShowMenu(!showMenu)}>
           Dashboard
         </NavLink>
       </li>
-      <li className="hover:text-slate-900 dark:hover:text-slate-50">
+      <li className="link-style">
         <NavLink to="/login" onClick={() => setShowMenu(!showMenu)}>
           Login
         </NavLink>
@@ -42,8 +43,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-300/75 dark:border-slate-50/[0.06] bg-white/75 supports-backdrop-blur:bg-white/95 dark:bg-black/75">
-      <div className="navbar max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8">
+    <div className="sticky shadow-black top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 border-b border-b-slate-300/75 border-t-0 dark:border-b-slate-100/20 bg-white/75 supports-backdrop-blur:bg-white/95 dark:bg-black/75">
+      <div className="flex items-center justify-between navbar max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8">
         <div className="navbar-start">
           <div className="dropdown">
             <label
@@ -68,19 +69,19 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className={`menu lg:text-md menu-sm dropdown-content ${
+              className={`menu shadow-md bg-white dark:bg-black border border-slate-300 dark:border-slate-600 lg:text-md menu-sm dropdown-content ${
                 !showMenu && "hidden"
               } mt-3 p-2 shadow rounded-box w-52`}
             >
               {listItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="btn btn-ghost normal-case text-xl">Athlete's Guide</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu flex items-center lg:text-base menu-horizontal px-1">
             {listItems}
-            <li className="hover:text-slate-900 dark:hover:text-slate-50">
+            <li className="hover:text-black dark:hover:text-white">
               <button
                 className="hover:scale-110 text-[1.2rem] duration-200"
                 onClick={toggleTheme}
@@ -89,6 +90,22 @@ const Navbar = () => {
               </button>
             </li>
           </ul>
+        </div>
+        <div className="navbar-end md:hidden">
+          <button
+            className="flex navbar-end md:hidden items-center justify-evenly w-auto gap-1 border border-slate-300 dark:border-slate-600 py-1 px-2 rounded-lg hover:text-black dark:hover:text-white text-base duration-200"
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? (
+              <>
+                <FaMoon></FaMoon> Dark
+              </>
+            ) : (
+              <>
+                <FaSun></FaSun> Light
+              </>
+            )}
+          </button>
         </div>
       </div>
     </div>
