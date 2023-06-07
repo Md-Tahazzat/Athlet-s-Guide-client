@@ -19,6 +19,8 @@ const Login = () => {
   } = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
+  const [signiningUser, setSigniningUser] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from || "/";
@@ -30,14 +32,17 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     setErrorMsg("");
+    setSigniningUser(true);
     handleSignIn(data.email, data.password)
       .then((user) => {
         if (user) {
           reset();
+          setSigniningUser(false);
           navigate(from, { replace: true });
         }
       })
       .catch((err) => {
+        setSigniningUser(false);
         setErrorMsg(err.message);
       });
   };
@@ -75,6 +80,7 @@ const Login = () => {
         />
         ;
       </div>
+
       <form
         className="md:absolute top-10 left-0 right-0 border md:min-w-[28rem] mx-auto md:max-w-[32rem] p-4 w-full md:py-5 md:px-20 bg-slate-300/90 dark:bg-slate-700/90 border-slate-300 dark:border-slate-600 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
@@ -128,11 +134,17 @@ const Login = () => {
           </Link>
         </p>
 
-        <input
-          className="w-full mt-4 py-2 max-w-md  bg-blue-600 rounded-md text-white text-xl hover:bg-blue-700"
-          type="submit"
-          value="Login"
-        />
+        {signiningUser ? (
+          <div className="w-full mt-4 py-2 max-w-md text-center bg-blue-600 rounded-md text-white text-xl hover:bg-blue-700">
+            <p className="rounded-full inline-block w-5 h-5 animate-spin border-dotted border-slate-100 border-4"></p>
+          </div>
+        ) : (
+          <input
+            className="w-full mt-4 py-2 max-w-md  bg-blue-600 rounded-md text-white text-xl hover:bg-blue-700"
+            type="submit"
+            value="Login"
+          />
+        )}
       </form>
 
       <div className="divider max-w-[32rem] w-full mx-auto">or</div>
