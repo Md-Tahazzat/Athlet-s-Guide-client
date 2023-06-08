@@ -22,32 +22,33 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    setCreatingUser(true);
+    // setCreatingUser(true);
     const { confirmPassword, email, image, name, password } = data;
     setErrorMsg("");
     if (password !== confirmPassword) {
-      setErrorMsg("Password didn't match");
+      setErrorMsg("Confirm password didn't match");
       return;
     }
-    handleRegister(email, password)
-      .then((user) => {
-        console.log(user);
-        if (user) {
-          const userDetails = {
-            displayName: name,
-            photoURL: image,
-          };
-          update(userDetails).then((result) => {
-            console.log(result);
-            setCreatingUser(false);
-            reset();
-            navigate(from, { replace: true });
-          });
-        }
-      })
-      .catch((err) => {
-        setErrorMsg(err.message);
-      });
+    console.log(data, { errorMsg });
+    // handleRegister(email, password)
+    //   .then((user) => {
+    //     console.log(user);
+    //     if (user) {
+    //       const userDetails = {
+    //         displayName: name,
+    //         photoURL: image,
+    //       };
+    //       update(userDetails).then((result) => {
+    //         console.log(result);
+    //         setCreatingUser(false);
+    //         reset();
+    //         navigate(from, { replace: true });
+    //       });
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     setErrorMsg(err.message);
+    //   });
   };
 
   // social login method
@@ -71,6 +72,7 @@ const Register = () => {
       })
       .catch((error) => setErrorMsg(err.message));
   };
+  console.log(errors);
 
   return (
     <div className="w-full px-4 md:px-auto relative mt-2 md:mt-0 md:min-h-screen">
@@ -137,17 +139,29 @@ const Register = () => {
             <input
               type={hidePassword ? "password" : "text"}
               required
-              {...register("password", { required: true })}
+              {...register("password", {
+                required: true,
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
+                pattern: {
+                  value: /^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+                  message:
+                    "Password must contain at least one uppercase letter and one special character",
+                },
+              })}
               placeholder="Password"
-              className="py-2 px-2 bg-slate-100/60 dark:bg-slate-500/60 w-full rounded-md border dark:border-slate-500 border-slate-400 focus:outline-none focus:border-slate-400 max-w-sm"
+              className={`py-2 px-2 bg-slate-100/60 dark:bg-slate-500/60 w-full rounded-md border ${
+                errorMsg || errors?.password
+                  ? "border-red-600"
+                  : "dark:border-slate-500 border-slate-400"
+              } focus:outline-none focus:border-slate-400 max-w-sm`}
             />
-            <label className="label">
-              {errorMsg && <span className="text-red-500">{errorMsg}</span>}
-            </label>
             <a
               onClick={() => setHidePassword(!hidePassword)}
               href="#"
-              className="absolute right-3 bottom-7"
+              className="absolute right-3 bottom-3"
             >
               {hidePassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
             </a>
@@ -160,20 +174,40 @@ const Register = () => {
             <input
               type={hidePassword ? "password" : "text"}
               required
-              {...register("confirmPassword", { required: true })}
+              {...register("confirmPassword", {
+                required: true,
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
+                pattern: {
+                  value: /^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+                  message:
+                    "Password must contain at least one uppercase letter and one special character",
+                },
+              })}
               placeholder="Confirm password"
-              className="py-2 px-2 bg-slate-100/60 dark:bg-slate-500/60 w-full rounded-md border dark:border-slate-500 border-slate-400 focus:outline-none focus:border-slate-400 max-w-sm"
+              className={`py-2 px-2 bg-slate-100/60 dark:bg-slate-500/60 w-full rounded-md border ${
+                errorMsg || errors?.password
+                  ? "border-red-600"
+                  : "dark:border-slate-500 border-slate-400"
+              } focus:outline-none focus:border-slate-400 max-w-sm`}
             />
-            <label className="label">
-              {errorMsg && <span className="text-red-500">{errorMsg}</span>}
-            </label>
             <a
               onClick={() => setHidePassword(!hidePassword)}
               href="#"
-              className="absolute right-3 bottom-7"
+              className="absolute right-3 bottom-3"
             >
               {hidePassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
             </a>
+          </div>
+          <div>
+            <label className="label text-red-500 dark:text-red-400">
+              {errorMsg ||
+                (errors && (
+                  <span>{errorMsg || errors?.password?.message}</span>
+                ))}
+            </label>
           </div>
 
           <p className="text-sm">
