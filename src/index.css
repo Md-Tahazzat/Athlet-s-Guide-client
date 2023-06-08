@@ -22,3 +22,11 @@
 .active:focus {
   @apply bg-blue-600 text-white;
 }
+
+#img-container div:hover > div {
+  height: 100%;
+}
+
+#img-container div:hover > div h1 {
+  @apply block;
+}

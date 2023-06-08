@@ -16,7 +16,6 @@ const Slider = () => {
   };
   return (
     <div>
-      {/* TODO: add relevant image to the slider */}
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -38,7 +37,7 @@ const Slider = () => {
             src="https://i.ibb.co/KVpCf60/pro-Golf.jpg"
             alt=""
           />
-          <div className="absolute top-10 left-10 text-white max-w-xl  bg-slate-400/40 p-5 rounded-xl">
+          <div className="absolute hidden md:block top-10 left-10 text-white max-w-xl  bg-slate-400/40 p-5 rounded-xl">
             <p className="text-left">
               In golf, players use clubs to hit balls into a series of holes on
               a course. Players with the fewest successful strokes are declared
@@ -54,7 +53,7 @@ const Slider = () => {
             src="https://i.ibb.co/0jk3S1Z/pro-cricket.jpg"
             alt=""
           />
-          <div className="absolute top-10 left-10 text-white max-w-xl bg-slate-500/40 p-10 rounded-xl">
+          <div className="absolute hidden md:block top-10 left-10 text-white max-w-xl bg-slate-500/40 p-10 rounded-xl">
             <p className="text-left ">
               Cricket is played by two teams of 11 with a bat and ball. One
               player on each team acts as captain. Matches can range from
@@ -70,7 +69,7 @@ const Slider = () => {
             src="https://i.ibb.co/gmjQSRY/pro-football.png"
             alt=""
           />
-          <div className="absolute top-10 left-10 text-white max-w-xl  bg-slate-500/50 p-5 rounded-xl">
+          <div className="absolute hidden md:block top-10 left-10 text-white max-w-xl  bg-slate-500/50 p-5 rounded-xl">
             <p className="text-left">
               Basketball is played between two teams of five players each. Each
               team tries to score by tossing the ball through the opponent’s
@@ -86,7 +85,7 @@ const Slider = () => {
             src="https://i.ibb.co/3kqbw7S/pro-football.jpg"
             alt=""
           />
-          <div className="absolute top-10 left-10 text-white max-w-xl  bg-slate-600/60 p-5 rounded-xl">
+          <div className="absolute hidden md:block top-10 left-10 text-white max-w-xl  bg-slate-600/60 p-5 rounded-xl">
             <p className="text-left">
               Soccer is arguably the most-watched sport in the world in 2023. It
               is a game involving two teams of 11 who try to move a ball into
@@ -103,7 +102,7 @@ const Slider = () => {
             src="https://i.ibb.co/yPYqtYN/pro-volleball.jpg"
             alt=""
           />
-          <div className="absolute top-10 left-10 text-white max-w-xl  bg-slate-600/50 p-5 rounded-xl">
+          <div className="absolute hidden md:block top-10 left-10 text-white max-w-xl  bg-slate-600/50 p-5 rounded-xl">
             <p className="text-left">
               Volleyball is popular in different parts of the world. Two teams
               of six each use their hands to bat a ball back and forth over a
@@ -119,7 +118,7 @@ const Slider = () => {
             src="https://i.ibb.co/MgFX0Tq/mixed-Marsal-art.jpg"
             alt=""
           />
-          <div className="absolute top-8 right-8 text-white max-w-xl  bg-slate-700/60 p-5 rounded-xl">
+          <div className="absolute hidden md:block top-8 right-8 text-white max-w-xl  bg-slate-700/60 p-5 rounded-xl">
             <p className="text-left">
               Mixed martial arts incorporate techniques from judo, boxing,
               wrestling, Muay Thai, jujitsu, and karate. MMA is one of the
@@ -136,7 +135,7 @@ const Slider = () => {
             src="https://i.ibb.co/P1ZRPDD/Baseball.jpg"
             alt=""
           />
-          <div className="absolute top-8 right-8 text-white max-w-xl  bg-slate-700/60 p-5 rounded-xl">
+          <div className="absolute hidden md:block top-8 right-8 text-white max-w-xl  bg-slate-700/60 p-5 rounded-xl">
             <p className="text-left">
               Baseball is played with a bat, ball, and gloves. Two teams of nine
               players each compete on a field with four white bases laid out in
@@ -151,7 +150,7 @@ const Slider = () => {
             src="https://i.ibb.co/7QW9dFG/American-football.jpg"
             alt=""
           />
-          <div className="absolute top-8 right-8 text-white max-w-xl  bg-slate-800/60 p-5 rounded-xl">
+          <div className="absolute hidden md:block top-8 right-8 text-white max-w-xl  bg-slate-800/60 p-5 rounded-xl">
             <p className="text-left">
               Formula 1 is also known as Grand Prix racing. The game involves
               automobile racing on closed highways or other courses. The
