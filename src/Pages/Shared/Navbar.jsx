@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -40,8 +40,10 @@ const Navbar = () => {
               Dashboard
             </NavLink>
           </li>
-          <li>
-            <button onClick={handleLogOut}>LogOut</button>
+          <li className="link-style">
+            <Link to="#" onClick={handleLogOut}>
+              LogOut
+            </Link>
           </li>
           <img
             title={user?.displayName}
@@ -104,7 +106,7 @@ const Navbar = () => {
             {listItems}
             <li className="hover:text-black dark:hover:text-white">
               <button
-                className="hover:scale-110 text-[1.2rem] duration-200"
+                className="hover:scale-110 ml-2 text-[1.2rem] duration-200"
                 onClick={toggleTheme}
               >
                 {theme === "light" ? <FaMoon></FaMoon> : <FaSun></FaSun>}

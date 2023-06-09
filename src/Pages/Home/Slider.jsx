@@ -34,22 +34,6 @@ const Slider = () => {
         <SwiperSlide className="relative">
           <img
             className="w-full h-full"
-            src="https://i.ibb.co/KVpCf60/pro-Golf.jpg"
-            alt=""
-          />
-          <div className="absolute hidden md:block top-10 left-10 text-white max-w-xl  bg-slate-400/40 p-5 rounded-xl">
-            <p className="text-left">
-              In golf, players use clubs to hit balls into a series of holes on
-              a course. Players with the fewest successful strokes are declared
-              winners. The game was established in the Netherlands in mid-16th
-              century.
-            </p>
-            <p className="mt-2 text-left">Year of invention: 1764</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="relative">
-          <img
-            className="w-full h-full"
             src="https://i.ibb.co/0jk3S1Z/pro-cricket.jpg"
             alt=""
           />
@@ -96,6 +80,24 @@ const Slider = () => {
             <p className="mt-2 text-left">Year of invention: 1863</p>
           </div>
         </SwiperSlide>
+
+        <SwiperSlide className="relative">
+          <img
+            className="w-full h-full"
+            src="https://i.ibb.co/KVpCf60/pro-Golf.jpg"
+            alt=""
+          />
+          <div className="absolute hidden md:block top-10 left-10 text-white max-w-xl  bg-slate-400/40 p-5 rounded-xl">
+            <p className="text-left">
+              In golf, players use clubs to hit balls into a series of holes on
+              a course. Players with the fewest successful strokes are declared
+              winners. The game was established in the Netherlands in mid-16th
+              century.
+            </p>
+            <p className="mt-2 text-left">Year of invention: 1764</p>
+          </div>
+        </SwiperSlide>
+
         <SwiperSlide className="relative">
           <img
             className="w-full h-full"
