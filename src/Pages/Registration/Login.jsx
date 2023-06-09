@@ -7,16 +7,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Lottie from "react-lottie-player";
 
 const Login = () => {
-  const {
-    user,
-    loading,
-    googleSignIn,
-    gitHubSignIn,
-    handleRegister,
-    handleSignIn,
-    handleLogOut,
-    update,
-  } = useContext(AuthContext);
+  const { googleSignIn, gitHubSignIn, handleSignIn } = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
   const [signiningUser, setSigniningUser] = useState(false);
@@ -50,17 +41,17 @@ const Login = () => {
   // social login method
   const handleGoogleSigin = () => {
     setErrorMsg("");
-    googleSing()
+    googleSignIn()
       .then((result) => {
         if (result?.user) {
           navigate(from, { replace: true });
         }
       })
-      .catch((error) => setErrorMsg(err.message));
+      .catch((error) => setErrorMsg(error.message));
   };
   const handleGithubSignin = () => {
     setErrorMsg("");
-    gitHubSign()
+    gitHubSignIn()
       .then((result) => {
         if (result?.user) {
           navigate(from, { replace: true });
@@ -111,16 +102,19 @@ const Login = () => {
             placeholder="Enter your password"
             className="py-2 px-2 bg-slate-100/60 dark:bg-slate-500/60 w-full rounded-md border dark:border-slate-500 border-slate-400 focus:outline-none focus:border-slate-400 max-w-sm"
           />
-          <label className="label">
-            {errorMsg && <span className="text-red-500">{errorMsg}</span>}
-          </label>
+
           <a
             onClick={() => setHidePassword(!hidePassword)}
             href="#"
-            className="absolute right-3 bottom-7"
+            className="absolute right-3 bottom-3"
           >
             {hidePassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
           </a>
+        </div>
+        <div>
+          <label className="label">
+            {errorMsg && <span className="text-red-500">{errorMsg}</span>}
+          </label>
         </div>
 
         <p className="text-sm">
@@ -150,19 +144,19 @@ const Login = () => {
       <div className="divider max-w-[32rem] w-full mx-auto">or</div>
       <p className="my-1 text-center">Sign in with </p>
 
-      <div className="my-4 max-w-[32rem] w-full mx-auto flex items-center justify-center gap-1">
+      <div className="my-4 max-w-[32rem] w-full mx-auto flex items-center justify-center gap-4">
         <button
           onClick={handleGoogleSigin}
-          className="flex items-center p-1 rounded-md bg-[#685d79] hover:bg-[#544b61] duration-200 text-xl text-white justify-center border border-slate-300"
+          className="flex items-center rounded-md bg-slate-500/70 shadow-lg dark:bg-slate-600/70 hover:bg-slate-400/90 dark:hover:bg-slate-600/95 duration-200 text-xl text-white justify-center border border-slate-400 dark:border-slate-600"
         >
           <FaGoogle className="w-10 h-10 p-1" />{" "}
           <span className="px-2">Google</span>
         </button>
         <button
           onClick={handleGithubSignin}
-          className="flex items-center p-1 rounded-md bg-[#685d79] hover:bg-[#544b61] duration-200 text-xl text-white justify-center border border-slate-300"
+          className="flex items-center rounded-md bg-slate-500/70 shadow-lg dark:bg-slate-600/70 hover:bg-slate-400/90 dark:hover:bg-slate-600/95 duration-200 text-xl text-white justify-center border border-slate-400 dark:border-slate-600"
         >
-          <FaGithub className="w-10 h-10 p-1" />{" "}
+          <FaGithub className="w-10 h-10 p-1" />
           <span className="px-2">GitHub</span>
         </button>
       </div>

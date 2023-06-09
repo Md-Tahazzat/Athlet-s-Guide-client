@@ -31,7 +31,9 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      {user ? (
+      {loading ? (
+        <li className="w-5 h-5 animate-spin border-4 border-dotted border-yellow-600 rounded-full"></li>
+      ) : user ? (
         <>
           <li className="link-style">
             <NavLink to="/dashboard" onClick={() => setShowMenu(!showMenu)}>

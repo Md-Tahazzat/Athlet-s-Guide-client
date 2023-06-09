@@ -30,3 +30,12 @@
 #img-container div:hover > div h1 {
   @apply block;
 }
+
+/* to create parallex design */
+#parallex-1 {
+  background-image: url("https://i.ibb.co/THwZtL8/all-sports-background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -3,8 +3,9 @@ import Title from "../../Components/Title";
 
 const PopularClasses = () => {
   return (
-    <section className="my-20 md:my-24 lg:my-32">
+    <section className="my-20 md:my-32 lg:my-64">
       <Title title="Popular Classes"></Title>
+      {/* TODO: have to implement dynamic img source */}
       <div
         id="img-container"
         className="flex gap-14 justify-center box-border my-10 md:my-20  flex-wrap"

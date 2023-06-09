@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="mt-10 border-t border-t-slate-300 dark:border-t-slate-600 md:h-72 lg:h-96   md:py-10  bg-gradient-to-b from-slate-200/90 dark:from-black/95 dark:to-black/70 backdrop:blur-md to-slate-200/60 text-base-content md:relative md:pb-20">
+    <footer className="mt-10  border-t border-t-slate-300 dark:border-t-slate-600 md:h-72 lg:h-96   md:py-10  bg-gradient-to-b from-slate-200/90 dark:from-black/95 dark:to-black/70 backdrop:blur-md to-slate-200/60 text-base-content md:relative md:pb-20">
       <div
         id="background-image"
         className="w-full  md:h-72 lg:h-96 absolute bottom-0 left-0 -z-10"

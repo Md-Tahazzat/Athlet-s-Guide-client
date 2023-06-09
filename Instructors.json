@@ -1,0 +1,61 @@
+{
+    "instructors": [
+      {
+        "name": "John Smith",
+        "image": "john_smith.jpg",
+        "email": "johnsmith@gmail.com",
+        "classesTaken": 5,
+        "classes": ["Basketball", "Kickboxing", "Zumba"]
+      },
+      {
+        "name": "Emily Johnson",
+        "image": "emily_johnson.jpg",
+        "email": "emily@example.com",
+        "classesTaken": 3,
+        "classes": ["Yoga", "Kickboxing", "Zumba"]
+      },
+      {
+        "name": "Michael Davis",
+        "image": "michael_davis.jpg",
+        "email": "michael@example.com",
+        "classesTaken": 8,
+        "classes": ["Boxing", "HIIT", "Circuit Training"]
+      },
+      {
+        "name": "Sophia Thompson",
+        "image": "sophia_thompson.jpg",
+        "email": "sophia@example.com",
+        "classesTaken": 2,
+        "classes": ["Badminton","Meditation"]
+      },
+      {
+        "name": "David Wilson",
+        "image": "david_wilson.jpg",
+        "email": "david@example.com",
+        "classesTaken": 6,
+        "classes": ["Tennis", "Yoga", "Meditation"]
+      },
+      {
+        "name": "Olivia Garcia",
+        "image": "olivia_garcia.jpg",
+        "email": "olivia@example.com",
+        "classesTaken": 4,
+        "classes": ["Football", "Kickboxing"]
+      },
+      {
+        "name": "Daniel Rodriguez",
+        "image": "daniel_rodriguez.jpg",
+        "email": "daniel@example.com",
+        "classesTaken": 7,
+        "classes": ["Cycling", "TRX"]
+      },
+      {
+        "name": "Emma Turner",
+        "image": "emma_turner.jpg",
+        "email": "emma@example.com",
+        "classesTaken": 5,
+        "classes": ["Scorcer", "Pilates", "Volleyball"]
+      }
+    ]
+  }
+  
