@@ -17,10 +17,10 @@ import {
 const Dashboard = () => {
   // const { loading, user } = useContext(AuthContext);
   // TODO: load user and role from database
-  const user = { role: "admin" };
-  const unchekedInput = () => {
+  const user = { role: "instructor" };
+  const uncheckedInput = () => {
     const input = document.getElementById("my-drawer-2");
-    input.checked = false;
+    input.checked = !input.checked;
   };
   return (
     <div className="min-h-[calc(100vh-456px)] overflow-hidden">
@@ -45,22 +45,41 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side border-r border-slate-300 dark:border-slate-600">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu overflow-y-auto text-base rounded-md md:rounded-none p-4 w-auto mt-16 md:mt-0 bg-white/70 dark:bg-black/80 h-fulll md:min-h-[calc(100vh-456px)] text-base-content">
+          <ul
+            id="menu_list"
+            className="menu overflow-y-auto text-base rounded-md md:rounded-none p-4 w-auto  mt-16 lg:mt-0 bg-white/80 dark:bg-black/80 h-fulll md:min-h-[calc(100vh-456px)] text-base-content"
+          >
             {/* Sidebar content here */}
+            <div className="flex items-center justify-between mb-4">
+              <p className="flex items-center gap-2 ">
+                {user?.role === "admin" ? (
+                  <>
+                    <FaShieldAlt></FaShieldAlt> Admin
+                  </>
+                ) : user?.role === "instructor" ? (
+                  <>
+                    {" "}
+                    <FaUserTie></FaUserTie> Instructor
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <FaUser></FaUser> Student
+                  </>
+                )}
+              </p>
+              <span onClick={uncheckedInput} className="mr-2 text-lg lg:hidden">
+                x
+              </span>
+            </div>
             {user?.role === "admin" ? (
               <>
-                <li onClick={unchekedInput} className="my-4">
-                  X
-                </li>
-                <p className="flex items-center gap-2 mb-4">
-                  <FaShieldAlt></FaShieldAlt> Admin{" "}
-                </p>
-                <li className="" htmlFor="my-drawer-2">
+                <li onClick={uncheckedInput}>
                   <NavLink to="/dashboard/manageClasses">
                     <FaFileSignature></FaFileSignature> Manage Classes
                   </NavLink>
                 </li>
-                <li className="" htmlFor="my-drawer-2">
+                <li onClick={uncheckedInput}>
                   <NavLink to="/dashboard/manageUsers">
                     <FaUserEdit></FaUserEdit> Manage Users
                   </NavLink>
@@ -68,15 +87,12 @@ const Dashboard = () => {
               </>
             ) : user?.role === "instructor" ? (
               <>
-                <p className="flex items-center gap-2 mb-4">
-                  <FaUserTie></FaUserTie> Instructor{" "}
-                </p>
-                <li className="" htmlFor="my-drawer-2">
+                <li onClick={uncheckedInput}>
                   <NavLink to="/dashboard/addClass">
                     <FaFileMedical></FaFileMedical> Add a Class
                   </NavLink>
                 </li>
-                <li className="" htmlFor="my-drawer-2">
+                <li onClick={uncheckedInput}>
                   <NavLink to="/dashboard/myClasses">
                     <FaFileContract></FaFileContract> My Classes
                   </NavLink>
@@ -84,20 +100,17 @@ const Dashboard = () => {
               </>
             ) : (
               <>
-                <p className="flex items-center gap-2 mb-4">
-                  <FaUser></FaUser> Student{" "}
-                </p>
-                <li className="" htmlFor="my-drawer-2">
+                <li onClick={uncheckedInput}>
                   <NavLink to="/dashboard/mySelectedClasses">
                     <FaFileImport></FaFileImport> My Selected Classes
                   </NavLink>
                 </li>
-                <li className="" htmlFor="my-drawer-2">
+                <li onClick={uncheckedInput}>
                   <NavLink to="/dashboard/myEnrolledClasses">
                     <FaFileInvoice></FaFileInvoice> My Enrolled Classes
                   </NavLink>
                 </li>
-                <li className="" htmlFor="my-drawer-2">
+                <li onClick={uncheckedInput}>
                   <NavLink htmlFor="my-drawer-2" to="/dashboard/payment">
                     <FaMoneyCheckAlt></FaMoneyCheckAlt> Payment
                   </NavLink>

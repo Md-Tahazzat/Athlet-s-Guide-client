@@ -39,3 +39,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* hover effect for dashboard list items */
+/* #menu_list > li:hover > a:not(.active) {
+  box-sizing: border-box;
+  letter-spacing: 1px;
+} */
