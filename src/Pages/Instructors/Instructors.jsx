@@ -3,14 +3,22 @@ import React, { useEffect, useState } from "react";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Title from "../../Components/Title";
 import { FaEnvelope } from "react-icons/fa";
+import Loading from "../Shared/Loading";
 
 const Instructors = () => {
+  const [loading, setLoading] = useState(true);
   const instance = UseAxiosSecure();
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    instance.get("/instructors").then((data) => setInstructors(data));
+    instance.get("/instructors").then((data) => {
+      setInstructors(data);
+      setLoading(false);
+    });
   }, []);
-  console.log(instructors[0]);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="my-10">
       <Title title="Our Instructors"></Title>
