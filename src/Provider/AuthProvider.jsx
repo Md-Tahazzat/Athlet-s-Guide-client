@@ -32,8 +32,13 @@ const AuthProvider = ({ children }) => {
           body: JSON.stringify({ email }),
         })
           .then((res) => res.json())
-          .then((result) => (currentUser.role = result?.role));
+          .then((result) => {
+            localStorage.setItem("access-token", result.token);
+            currentUser.role = result?.role;
+            console.log(result);
+          });
       }
+
       setUser(currentUser);
       setLoading(false);
     });

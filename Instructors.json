@@ -1,61 +1,92 @@
-{
-    "instructors": [
-      {
-        "name": "John Smith",
-        "image": "john_smith.jpg",
-        "email": "johnsmith@gmail.com",
-        "classesTaken": 5,
-        "classes": ["Basketball", "Kickboxing", "Zumba"]
-      },
-      {
-        "name": "Emily Johnson",
-        "image": "emily_johnson.jpg",
-        "email": "emily@example.com",
-        "classesTaken": 3,
-        "classes": ["Yoga", "Kickboxing", "Zumba"]
-      },
-      {
-        "name": "Michael Davis",
-        "image": "michael_davis.jpg",
-        "email": "michael@example.com",
-        "classesTaken": 8,
-        "classes": ["Boxing", "HIIT", "Circuit Training"]
-      },
-      {
-        "name": "Sophia Thompson",
-        "image": "sophia_thompson.jpg",
-        "email": "sophia@example.com",
-        "classesTaken": 2,
-        "classes": ["Badminton","Meditation"]
-      },
-      {
-        "name": "David Wilson",
-        "image": "david_wilson.jpg",
-        "email": "david@example.com",
-        "classesTaken": 6,
-        "classes": ["Tennis", "Yoga", "Meditation"]
-      },
-      {
-        "name": "Olivia Garcia",
-        "image": "olivia_garcia.jpg",
-        "email": "olivia@example.com",
-        "classesTaken": 4,
-        "classes": ["Football", "Kickboxing"]
-      },
-      {
-        "name": "Daniel Rodriguez",
-        "image": "daniel_rodriguez.jpg",
-        "email": "daniel@example.com",
-        "classesTaken": 7,
-        "classes": ["Cycling", "TRX"]
-      },
-      {
-        "name": "Emma Turner",
-        "image": "emma_turner.jpg",
-        "email": "emma@example.com",
-        "classesTaken": 5,
-        "classes": ["Scorcer", "Pilates", "Volleyball"]
-      }
-    ]
-  }
-  
+[
+    {
+      "name": "Football",
+      "image": "https://i.ibb.co/9VSm5qr/Foorball-teaching.jpg",
+      "instructor": "John Smith",
+      "instructor_email": "johnsmith",
+      "instructor_img":"https://i.ibb.co/k5SB1zq/football-coach.jpg",
+      "sets_available": 12,
+      "price": 900,
+      "students":20,
+      "status":"approved"
+    },
+    {
+      "name": "Basketball",
+      "image": "https://i.ibb.co/WWHTSnF/basket-ball.jpg",
+      "instructor": "Michael Davis",
+      "instructor_email": "michealdavis@gmail.com",
+      "instructor_img":"https://i.ibb.co/DpCJfH0/basket-ball-coach.jpg",
+      "sets_available": 8,
+      "price": 700,
+      "students":23,
+      "status":"approved"
+    },
+    {
+      "name": "Tennis",
+      "image": "https://i.ibb.co/Cz2dpnm/tennis-ball.jpg",
+      "instructor": "Sarah Johnson",
+      "instructor_email": "sarahjohnson@gmail.com",
+      "instructor_img":"https://i.ibb.co/30zXMqd/tennis-coach.jpg",
+      "sets_available": 15,
+      "price": 800,
+      "students":25,
+      "status":"approved"
+    },
+    {
+      "name": "Badminton",
+      "image": "https://i.ibb.co/kDXngB1/badminton.jpg",
+      "instructor": "Emil Thompson",
+      "instructor_email": "emilthompson@gmail.com",
+      "instructor_img":"https://i.ibb.co/c3bh6j9/badminton-coach.jpg",
+      "sets_available": 20,
+      "price": 600,
+      "students":26,
+      "status":"approved"
+    },
+    {
+      "name": "Golf",
+      "image": "https://i.ibb.co/HBWDK1R/golf-ball.jpg",
+      "instructor": "Robert Johnson",
+      "instructor_email": "robertjohnson@gmail.com",
+      "instructor_img":"https://i.ibb.co/0fVDxkr/goalf-coach.jpg",
+      "sets_available": 7,
+      "price": 1200,
+      "students":18,
+      "status":"approved"
+    },
+    {
+      "name": "Baseball",
+      "image": "https://i.ibb.co/H7wQv7f/baseball.jpg",
+      "instructor": "Ronald Pawl",
+      "instructor_email": "ronaldpawl",
+      "instructor_img":"https://i.ibb.co/cFwv5pc/baseball-coach.jpg",
+      "sets_available": 9,
+      "price": 750,
+      "students":34,
+      "status":"approved"
+    },
+    {
+      "name": "Martial Arts",
+      "image": "https://i.ibb.co/jHK4LLZ/martial-art.jpg",
+      "instructor": "David Lee",
+      "instructor_email": "davidlee@gmail.com",
+      "instructor_img":"https://i.ibb.co/n3kQgWD/martial-art-coach.jpg",
+      "sets_available": 15,
+      "price": 600,
+      "students":24,
+      "status":"approved"
+    },
+    
+    {
+      "name": "American Football",
+      "image": "https://i.ibb.co/bN3J647/american-football.jpg",
+      "instructor": "Alex Wilson",
+      "instructor_email": "alexwilson@gmail.com",
+      "instructor_img":"https://i.ibb.co/Bc8LP0z/american-football-coach.jpg",
+      "sets_available":13,
+      "price": 700,
+      "students":24,
+      "status":"approved"
+    }
+
+  ]

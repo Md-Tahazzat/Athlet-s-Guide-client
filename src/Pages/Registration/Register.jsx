@@ -7,8 +7,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Lottie from "react-lottie-player";
 
 const Register = () => {
-  const { update, googleSignIn, gitHubSignIn, handleRegister } =
-    useContext(AuthContext);
+  const { update, googleSignIn, handleRegister } = useContext(AuthContext);
   const [creatingUser, setCreatingUser] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
@@ -61,17 +60,6 @@ const Register = () => {
       })
       .catch((error) => setErrorMsg(err.message));
   };
-  const handleGithubSignin = () => {
-    setErrorMsg("");
-    gitHubSignIn()
-      .then((result) => {
-        if (result?.user) {
-          navigate(from, { replace: true });
-        }
-      })
-      .catch((error) => setErrorMsg(error.message));
-  };
-  console.log(errors);
 
   return (
     <div className="w-full px-4 md:px-auto relative mt-2 md:mt-0 md:min-h-screen">
@@ -228,8 +216,7 @@ const Register = () => {
         </form>
       )}
 
-      <div className="divider max-w-[32rem] w-full mx-auto">or</div>
-      <p className="my-1 text-center">Sign in with </p>
+      <p className="text-center">Sign in with </p>
 
       <div className="my-4 max-w-[32rem] w-full mx-auto flex items-center justify-center gap-5">
         <button
@@ -238,13 +225,6 @@ const Register = () => {
         >
           <FaGoogle className="w-10 h-10 p-1" />{" "}
           <span className="px-2">Google</span>
-        </button>
-        <button
-          onClick={handleGithubSignin}
-          className="flex items-center rounded-md bg-slate-500/70 shadow-lg dark:bg-slate-600/70 hover:bg-slate-400/90 dark:hover:bg-slate-600/95 duration-200 text-xl text-white justify-center border border-slate-400 dark:border-slate-600"
-        >
-          <FaGithub className="w-10 h-10 p-1" />{" "}
-          <span className="px-2">GitHub</span>
         </button>
       </div>
     </div>
