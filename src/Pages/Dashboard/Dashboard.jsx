@@ -17,7 +17,7 @@ import {
 const Dashboard = () => {
   // const { loading, user } = useContext(AuthContext);
   // TODO: load user and role from database
-  const user = { role: "instructor" };
+  const user = { role: "student" };
   const uncheckedInput = () => {
     const input = document.getElementById("my-drawer-2");
     input.checked = !input.checked;
