@@ -28,6 +28,13 @@ const Classes = () => {
     return <Loading></Loading>;
   }
   const handleSelect = (el) => {
+    Swal.fire({
+      title: "processing...",
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      },
+    });
     if (!user) {
       Swal.fire({
         title: "Please login to continue!!",
@@ -44,8 +51,22 @@ const Classes = () => {
       class_image: el?.image,
     };
     instance
-      .patch(`/student?email=${user?.email}`, classDetails)
-      .then((data) => console.log(data));
+      .patch(`/selectedClasses?email=${user?.email}`, classDetails)
+      .then((data) => {
+        Swal.close();
+        if (data.alreadySelected) {
+          Swal.fire({
+            icon: "warning",
+            title: "Already Selected!",
+          });
+        } else if (data.modifiedCount) {
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Successfully selected",
+          });
+        }
+      });
   };
   return (
     <div className="my-10 text-lg">
