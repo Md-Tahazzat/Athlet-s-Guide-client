@@ -29,19 +29,15 @@ const Instructors = () => {
             className="card card-compact my-8 md:my-0 bg-base-100 shadow-xl border border-slate-300 dark:border-slate-600 hover:-translate-y-2 duration-200"
           >
             <figure>
-              <img
-                src={instructor.instructor_img}
-                className="w-full h-64"
-                alt="Shoes"
-              />
+              <img src={instructor.image} className="w-full h-64" alt="Shoes" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{instructor.instructor}</h2>
+              <h2 className="card-title">{instructor.name}</h2>
               <p
                 className="flex items-center
                gap-2"
               >
-                <FaEnvelope></FaEnvelope> {instructor.instructor_email}
+                <FaEnvelope></FaEnvelope> {instructor.email}
               </p>
             </div>
           </div>

@@ -6,6 +6,7 @@ import { FaEnvelope, FaUserTie } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { json, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
 
 const Classes = () => {
   const navigate = useNavigate();
@@ -13,20 +14,20 @@ const Classes = () => {
   const { user } = useContext(AuthContext);
   // TODO: user role must be dynamic
   // const user = { role: "student" };
-  const [loading, setLoading] = useState(true);
   const instance = UseAxiosSecure();
-  const [instructorClasses, setInstructorClasses] = useState([]);
-  useEffect(() => {
-    instance.get("/classes").then((data) => {
-      setInstructorClasses(data);
-      setLoading(false);
-    });
-  }, []);
-  if (loading) {
+
+  // get all the instructors data
+  const {
+    data: allClasses = [],
+    isLoading,
+    refetch,
+  } = useQuery(["classes", 8], async () => {
+    return instance.get("/classes").then((data) => data);
+  });
+  if (isLoading) {
     return <Loading></Loading>;
   }
   const handleSelect = (el) => {
-    console.log(el);
     if (!user) {
       Swal.fire({
         title: "Please login to continue!!",
@@ -50,7 +51,7 @@ const Classes = () => {
     <div className="my-10 text-lg">
       <Title title="All Classes"></Title>
       <div className="md:my-20 md:mx-20">
-        {instructorClasses.map((el, index) => (
+        {allClasses.map((el, index) => (
           <div
             key={index}
             className={`flex  flex-col md:flex-row gap-5 md:items-center md:justify-between my-6 ${
