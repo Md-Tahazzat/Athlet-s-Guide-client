@@ -15,9 +15,8 @@ import {
 } from "react-icons/fa";
 
 const Dashboard = () => {
-  // const { loading, user } = useContext(AuthContext);
-  // TODO: load user and role from database
-  const user = { role: "admin" };
+  const { loading, user } = useContext(AuthContext);
+
   const uncheckedInput = () => {
     const input = document.getElementById("my-drawer-2");
     console.log(input.checked);
