@@ -4,7 +4,7 @@ import Loading from "../Shared/Loading";
 import Title from "../../Components/Title";
 import { FaEnvelope, FaUserTie } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
+import { json, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Classes = () => {
@@ -25,8 +25,8 @@ const Classes = () => {
   if (loading) {
     return <Loading></Loading>;
   }
-  const handleSelect = (id) => {
-    console.log(id);
+  const handleSelect = (el) => {
+    console.log(el);
     if (!user) {
       Swal.fire({
         title: "Please login to continue!!",
@@ -35,6 +35,16 @@ const Classes = () => {
       });
       navigate("/login", { state: { from: location?.pathname } });
     }
+    const classDetails = {
+      instructor: el?.instructor,
+      instructor_email: el?.instructor_email,
+      class_name: el?.name,
+      price: el?.price,
+      class_image: el?.image,
+    };
+    instance
+      .patch(`/student?email=${user?.email}`, classDetails)
+      .then((data) => console.log(data));
   };
   return (
     <div className="my-10 text-lg">
@@ -81,7 +91,7 @@ const Classes = () => {
                   ? "bg-slate-300 text-slate-400 dark:text-slate-500 dark:bg-slate-700"
                   : "bg-orange-light hover:bg-orange-dark"
               } duration-100 px-4 mx-4 rounded-lg mb-4 md:mb-0 text-slate-50`}
-              onClick={() => handleSelect(el._id)}
+              onClick={() => handleSelect(el)}
             >
               Select
             </button>

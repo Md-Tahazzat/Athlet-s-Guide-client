@@ -21,23 +21,22 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    // setCreatingUser(true);
+    setCreatingUser(true);
     const { confirmPassword, email, image, name, password } = data;
     setErrorMsg("");
     if (password !== confirmPassword) {
       setErrorMsg("Confirm password didn't match");
+      setCreatingUser(false);
       return;
     }
     handleRegister(email, password)
       .then((user) => {
-        console.log(user);
         if (user) {
           const userDetails = {
             displayName: name,
             photoURL: image,
           };
           update(userDetails).then((result) => {
-            console.log(result);
             setCreatingUser(false);
             reset();
             navigate(from, { replace: true });
@@ -46,6 +45,7 @@ const Register = () => {
       })
       .catch((err) => {
         setErrorMsg(err.message);
+        setCreatingUser(false);
       });
   };
 
