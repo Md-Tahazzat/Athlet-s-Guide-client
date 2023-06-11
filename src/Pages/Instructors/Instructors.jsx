@@ -22,11 +22,11 @@ const Instructors = () => {
   return (
     <div className="my-10">
       <Title title="Our Instructors"></Title>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 my-20 mx-20">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 my-20 md:mx-20">
         {instructors.map((instructor, index) => (
           <div
             key={index}
-            className="card card-compact  bg-base-100 shadow-xl border border-slate-300 dark:border-slate-600 hover:-translate-y-2 duration-200"
+            className="card card-compact my-8 md:my-0 bg-base-100 shadow-xl border border-slate-300 dark:border-slate-600 hover:-translate-y-2 duration-200"
           >
             <figure>
               <img

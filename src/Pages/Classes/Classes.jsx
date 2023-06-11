@@ -4,11 +4,15 @@ import Loading from "../Shared/Loading";
 import Title from "../../Components/Title";
 import { FaEnvelope, FaUserTie } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Classes = () => {
-  // const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { user } = useContext(AuthContext);
   // TODO: user role must be dynamic
-  const user = { role: "student" };
+  // const user = { role: "student" };
   const [loading, setLoading] = useState(true);
   const instance = UseAxiosSecure();
   const [instructorClasses, setInstructorClasses] = useState([]);
@@ -21,6 +25,17 @@ const Classes = () => {
   if (loading) {
     return <Loading></Loading>;
   }
+  const handleSelect = (id) => {
+    console.log(id);
+    if (!user) {
+      Swal.fire({
+        title: "Please login to continue!!",
+        icon: "warning",
+        showCancelButton: false,
+      });
+      navigate("/login", { state: { from: location?.pathname } });
+    }
+  };
   return (
     <div className="my-10 text-lg">
       <Title title="All Classes"></Title>
@@ -66,6 +81,7 @@ const Classes = () => {
                   ? "bg-slate-300 text-slate-400 dark:text-slate-500 dark:bg-slate-700"
                   : "bg-orange-light hover:bg-orange-dark"
               } duration-100 px-4 mx-4 rounded-lg mb-4 md:mb-0 text-slate-50`}
+              onClick={() => handleSelect(el._id)}
             >
               Select
             </button>

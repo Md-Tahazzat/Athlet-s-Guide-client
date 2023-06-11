@@ -20,17 +20,13 @@ const Dashboard = () => {
   const user = { role: "admin" };
   const uncheckedInput = () => {
     const input = document.getElementById("my-drawer-2");
+    console.log(input.checked);
     input.checked = !input.checked;
   };
   return (
     <div className="min-h-[calc(100vh-456px)] overflow-hidden">
       <div className="drawer lg:drawer-open realtive">
-        <input
-          id="my-drawer-2"
-          type="checkbox"
-          checked
-          className="drawer-toggle"
-        />
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Page content here */}
           <label

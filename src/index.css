@@ -44,3 +44,8 @@
 #menu_list > li:hover > a:not(.active) {
   @apply text-slate-900 dark:text-slate-50;
 }
+
+/* Swal customization */
+/* .swal-modal {
+  @apply bg-slate-400/60 dark:bg-slate-600/60;
+} */
