@@ -5,25 +5,30 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Shared/Loading";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ManageUsers = () => {
   const { user } = useContext(AuthContext);
   const instance = UseAxiosSecure();
-  const { data: users = [], isLoading } = useQuery(
-    ["manageUsers", 20],
-    async () => {
-      return instance.get(`/users?email=${user?.email}`).then((data) => data);
-    }
-  );
+  const navigate = useNavigate();
+  const {
+    data: users = [],
+    isLoading,
+    refetch,
+  } = useQuery(["manageUsers", 20], async () => {
+    return instance.get(`/users?email=${user?.email}`).then((data) => data);
+  });
   if (isLoading) {
     <Loading></Loading>;
   }
 
   // make instructor functionality
-  const makeInstructor = (singleUser) => {
+  const handleUsers = (singleUser, fromAdminBtn) => {
     const updateUser = {
+      name: singleUser.name,
       user: singleUser.user,
-      role: "instructor",
+      image: singleUser.image,
+      role: fromAdminBtn ? "admin" : "instructor",
     };
     Swal.fire({
       title: "processing...",
@@ -34,11 +39,18 @@ const ManageUsers = () => {
       },
     });
     instance.put(`/users?email=${user.email}`, updateUser).then((data) => {
-      console.log(data);
-      Swal.close();
+      if (data.modifiedCount > 0 || data.insertedId) {
+        Swal.close();
+        Swal.fire({
+          icon: "success",
+          title: "success",
+          text: "modified Successfull",
+        });
+        refetch();
+      }
     });
   };
-  console.log(users[0]);
+  console.log(users);
   return (
     <div>
       <Title title="Manage All Users"></Title>
@@ -68,9 +80,13 @@ const ManageUsers = () => {
                   <td>{singleUser.role}</td>
                   <td>
                     <button
-                      onClick={() => makeInstructor(singleUser)}
+                      onClick={() => handleUsers(singleUser)}
                       disabled={singleUser.role === "instructor"}
-                      className="bg-slate-500 shadow-md hover:bg-slate-600 text-white dark:text-black dark:bg-slate-300 dark:hover:bg-slate-400 duration-150 py-0 px-2 rounded "
+                      className={`${
+                        singleUser.role === "instructor"
+                          ? "bg-slate-300 text-slate-400 dark:bg-slate-700"
+                          : "bg-slate-500 shadow-md hover:bg-slate-600 text-white dark:text-black dark:bg-slate-300 dark:hover:bg-slate-400"
+                      } duration-150 py-0 px-2 rounded `}
                     >
                       Make Instructor
                     </button>
@@ -79,8 +95,12 @@ const ManageUsers = () => {
                   <td>
                     <button
                       disabled={singleUser.role === "admin"}
-                      onClick={() => handleAdmin(singleUser)}
-                      className="bg-slate-500 shadow-md hover:bg-slate-600 text-white dark:text-black dark:bg-slate-300 dark:hover:bg-slate-400 duration-150 py-0 px-2 rounded"
+                      onClick={() => handleUsers(singleUser, true)}
+                      className={`${
+                        singleUser.role === "admin"
+                          ? "bg-slate-300 text-slate-400 dark:bg-slate-700"
+                          : "bg-slate-500 shadow-md hover:bg-slate-600 text-white dark:text-black dark:bg-slate-300 dark:hover:bg-slate-400"
+                      } duration-150 py-0 px-2 rounded `}
                     >
                       Make Admin
                     </button>

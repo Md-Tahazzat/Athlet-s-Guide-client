@@ -22,14 +22,20 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
       const email = currentUser?.email;
       if (email) {
+        const user = {
+          email,
+          name: currentUser?.displayName,
+          image: currentUser?.photoURL,
+        };
         fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ user }),
         })
           .then((res) => res.json())
           .then((result) => {
