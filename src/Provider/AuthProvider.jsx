@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (currentUser) => {
-      const email = currentUser?.email || currentUser?.displayName;
+      const email = currentUser?.email;
       if (email) {
         fetch("http://localhost:5000/users", {
           method: "POST",
@@ -35,12 +35,15 @@ const AuthProvider = ({ children }) => {
           .then((result) => {
             localStorage.setItem("access-token", result.token);
             currentUser.role = result?.role;
-            console.log(result);
+            setUser(currentUser);
+            setLoading(false);
           });
       }
-
-      setUser(currentUser);
-      setLoading(false);
+      if (!currentUser) {
+        localStorage.removeItem("access-token");
+        setUser(currentUser);
+        setLoading(false);
+      }
     });
 
     return () => unSubscribed();

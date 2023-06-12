@@ -15,6 +15,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from || "/";
+  console.log(from);
   const {
     register,
     handleSubmit,
@@ -44,6 +45,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         if (result?.user) {
+          console.log("google", from);
           navigate(from, { replace: true });
         }
       })
