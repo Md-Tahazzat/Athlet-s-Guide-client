@@ -5,11 +5,16 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Title from "../../Components/Title";
 import { FaCreditCard, FaTrashAlt } from "react-icons/fa";
 import Loading from "../Shared/Loading";
+import Swal from "sweetalert2";
 
 const MySelectedClasses = () => {
   const { user } = useContext(AuthContext);
   const instance = UseAxiosSecure();
-  const { data = [], isLoading } = useQuery(["myClasses", 10], async () => {
+  const {
+    data = [],
+    isLoading,
+    refetch,
+  } = useQuery(["myClasses", 10], async () => {
     return instance
       .get(`/selectedClasses?email=${user?.email}`)
       .then((data) => data);
@@ -31,10 +36,21 @@ const MySelectedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         const classDetails = {
-          name: el.class_name,
-          instructor_email: el.instructor_email,
+          name: item.class_name,
+          instructor_email: item.instructor_email,
         };
-        instance.put("/removeSelectedClass", classDetails);
+        instance
+          .put(`/removeSelectedClass?email=${user?.email}`, classDetails)
+          .then((data) => {
+            if (data.modifiedCount > 0) {
+              Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "successfully deleted",
+              });
+              refetch();
+            }
+          });
       }
     });
   };
