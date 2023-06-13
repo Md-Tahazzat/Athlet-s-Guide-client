@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import lottieUser from "../../assets/LottieJson/userLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Lottie from "react-lottie-player";
+import UpdateTitle from "../../Hooks/UpdateTitle";
 
 const Login = () => {
   const { googleSignIn, gitHubSignIn, handleSignIn } = useContext(AuthContext);
@@ -15,7 +16,6 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from || "/";
-  console.log(from);
   const {
     register,
     handleSubmit,
@@ -45,7 +45,6 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         if (result?.user) {
-          console.log("google", from);
           navigate(from, { replace: true });
         }
       })
@@ -55,7 +54,6 @@ const Login = () => {
   //   setErrorMsg("");
   //   gitHubSignIn()
   //     .then((result) => {
-  //       console.log(result);
   //       // if (result?.user) {
   //       //   navigate(from, { replace: true });
   //       // }
@@ -65,6 +63,7 @@ const Login = () => {
 
   return (
     <div className="w-full px-4 md:px-auto relative mt-2 md:mt-0">
+      <UpdateTitle title="Login"></UpdateTitle>;
       <div className="hidden md:block">
         <Lottie
           className="h-[400px]"
@@ -74,7 +73,6 @@ const Login = () => {
         />
         ;
       </div>
-
       <form
         className="md:absolute top-10 left-0 right-0 border md:min-w-[28rem] mx-auto md:max-w-[32rem] p-4 w-full md:py-5 md:px-20 bg-slate-300/90 dark:bg-slate-700/90 border-slate-300 dark:border-slate-600 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
@@ -144,7 +142,6 @@ const Login = () => {
         )}
       </form>
       <p className="text-center">Sign in With</p>
-
       <div className="my-4 max-w-[32rem] w-full mx-auto flex items-center justify-center gap-4">
         <button
           onClick={handleGoogleSigin}

@@ -4,6 +4,7 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Title from "../../Components/Title";
 import { FaEnvelope } from "react-icons/fa";
 import Loading from "../Shared/Loading";
+import UpdateTitle from "../../Hooks/UpdateTitle";
 
 const Instructors = () => {
   const [loading, setLoading] = useState(true);
@@ -19,8 +20,10 @@ const Instructors = () => {
   if (loading) {
     return <Loading></Loading>;
   }
+
   return (
     <div className="my-10">
+      <UpdateTitle title="Instructors"></UpdateTitle>
       <Title title="Our Instructors"></Title>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 my-20 md:mx-20">
         {instructors.map((instructor, index) => (

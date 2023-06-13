@@ -14,12 +14,14 @@ import AddClass from "../Pages/InstructorDashboard/AddClass";
 import MyClasses from "../Pages/InstructorDashboard/MyClasses";
 import MySelectedClasses from "../Pages/StudentDashboard/MySelectedClasses";
 import MyEnrolledClasses from "../Pages/StudentDashboard/MyEnrolledClasses";
-import Payment from "../Pages/StudentDashboard/Payment";
+import FileNotFound from "../Pages/FileNotFound/FileNotFound";
+import PaymentDetails from "../Pages/StudentDashboard/paymentDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <FileNotFound></FileNotFound>,
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/instructors", element: <Instructors></Instructors> },
@@ -62,7 +64,7 @@ const router = createBrowserRouter([
           },
           {
             path: "payment",
-            element: <Payment></Payment>,
+            element: <PaymentDetails></PaymentDetails>,
           },
         ],
       },

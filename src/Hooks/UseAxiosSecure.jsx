@@ -6,11 +6,10 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 const UseAxiosSecure = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
   const { handleLogOut } = useContext(AuthContext);
 
   const instance = axios.create({
-    baseURL: "http://localhost:5000/",
+    baseURL: "https://summer-camp-server-two.vercel.app",
   });
 
   instance.interceptors.request.use(
@@ -29,7 +28,7 @@ const UseAxiosSecure = () => {
 
   // Add a response interceptor
   instance.interceptors.response.use(
-    (response) => response.data,
+    (response) => response?.data,
     async (error) => {
       if (
         error.response &&

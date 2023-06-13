@@ -13,17 +13,18 @@ import {
   FaUserEdit,
   FaUserTie,
 } from "react-icons/fa";
+import UpdateTitle from "../../Hooks/UpdateTitle";
 
 const Dashboard = () => {
   const { loading, user } = useContext(AuthContext);
 
   const uncheckedInput = () => {
     const input = document.getElementById("my-drawer-2");
-    console.log(input.checked);
     input.checked = !input.checked;
   };
   return (
     <div className="min-h-[calc(100vh-456px)] overflow-hidden">
+      <UpdateTitle title="Dashboard"></UpdateTitle>;
       <div className="drawer lg:drawer-open realtive">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
@@ -34,7 +35,7 @@ const Dashboard = () => {
           >
             menu
           </label>
-          <div className="md:p-10">
+          <div className="md:p-4">
             <Outlet></Outlet>
           </div>
         </div>

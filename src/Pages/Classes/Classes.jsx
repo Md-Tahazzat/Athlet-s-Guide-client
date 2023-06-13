@@ -7,6 +7,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { json, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import UpdateTitle from "../../Hooks/UpdateTitle";
 
 const Classes = () => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const Classes = () => {
     Swal.fire({
       title: "processing...",
       allowOutsideClick: false,
+      showConfirmButton: false,
       onBeforeOpen: () => {
         Swal.showLoading();
       },
@@ -65,11 +67,13 @@ const Classes = () => {
             title: "Success!",
             text: "Successfully selected",
           });
+          refetch();
         }
       });
   };
   return (
     <div className="my-10 text-lg">
+      <UpdateTitle title="Classes"></UpdateTitle>;
       <Title title="All Classes"></Title>
       <div className="md:my-20 md:mx-20">
         {allClasses.map((el, index) => (
@@ -97,7 +101,7 @@ const Classes = () => {
               </p>
             </div>
             <div className="ml-4 md:ml-0">
-              <p>Available Seats: {el.sets_available}</p>
+              <p>Available Seats: {el.available_seats}</p>
               <p>Price: ${el.price}</p>
             </div>
             <button

@@ -1,15 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Title from "../../Components/Title";
 import { FaCreditCard, FaTrashAlt } from "react-icons/fa";
 import Loading from "../Shared/Loading";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import Payment from "../Payment/Payment";
 
 const MySelectedClasses = () => {
   const { user } = useContext(AuthContext);
   const instance = UseAxiosSecure();
+  const [paymentDetails, setPaymentDetails] = useState("");
   const {
     data = [],
     isLoading,
@@ -54,11 +57,7 @@ const MySelectedClasses = () => {
       }
     });
   };
-  // payment function
-  // TODO: have to implement payment system.
-  const handlePayment = (item) => {
-    console.log(item);
-  };
+
   return (
     <div>
       <Title title="All Selected Classes"></Title>
@@ -88,11 +87,14 @@ const MySelectedClasses = () => {
                   <td>{el.instructor}</td>
                   <td>{el.instructor_email}</td>
                   <td className="text-right pr-10">$ {el.price}</td>
-                  <td
-                    onClick={() => handlePayment(el)}
-                    className="text-right flex mt-2 rounded-md bg-orange-light hover:bg-orange-dark shadow-lg  text-slate-900  items-center gap-2 py-1 px-2 "
-                  >
-                    <FaCreditCard></FaCreditCard> pay
+                  <td className="mt-2 ">
+                    <label
+                      onClick={() => setPaymentDetails(el)}
+                      htmlFor="paymentModal"
+                      className="flex rounded-md bg-orange-light hover:bg-orange-dark shadow-lg  text-slate-900  items-center gap-2 py-1 pl-2"
+                    >
+                      <FaCreditCard></FaCreditCard> <span>pay</span>
+                    </label>
                   </td>
                   <td
                     className="text-right pl-10"
@@ -105,6 +107,16 @@ const MySelectedClasses = () => {
             })}
           </tbody>
         </table>
+      </div>
+
+      <input type="checkbox" id="paymentModal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box bg-slate-300 dark:bg-slate-700 p-10 py-10">
+          <Payment refetch={refetch} paymentDetails={paymentDetails}></Payment>
+          <label className="float-right" htmlFor="paymentModal">
+            cancel
+          </label>
+        </div>
       </div>
     </div>
   );

@@ -22,7 +22,6 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       const email = currentUser?.email;
       if (email) {
         const user = {
@@ -30,7 +29,7 @@ const AuthProvider = ({ children }) => {
           name: currentUser?.displayName,
           image: currentUser?.photoURL,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://summer-camp-server-two.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

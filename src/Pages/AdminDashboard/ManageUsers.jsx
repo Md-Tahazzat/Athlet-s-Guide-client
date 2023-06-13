@@ -50,7 +50,6 @@ const ManageUsers = () => {
       }
     });
   };
-  console.log(users);
   return (
     <div>
       <Title title="Manage All Users"></Title>
@@ -81,12 +80,15 @@ const ManageUsers = () => {
                   <td>
                     <button
                       onClick={() => handleUsers(singleUser)}
-                      disabled={singleUser.role === "instructor"}
+                      disabled={
+                        singleUser.role === "instructor" ||
+                        singleUser.role === "admin"
+                      }
                       className={`${
                         singleUser.role === "instructor"
                           ? "bg-slate-300 text-slate-400 dark:bg-slate-700"
-                          : "bg-slate-500 shadow-md hover:bg-slate-600 text-white dark:text-black dark:bg-slate-300 dark:hover:bg-slate-400"
-                      } duration-150 py-0 px-2 rounded `}
+                          : "bg-slate-700 hover:bg-slate-800 duration-100 dark:bg-slate-300 dark:hover:bg-slate-200 text-white rounded-lg font-bold dark:text-black"
+                      }  py-0 px-2 rounded `}
                     >
                       Make Instructor
                     </button>
@@ -99,8 +101,8 @@ const ManageUsers = () => {
                       className={`${
                         singleUser.role === "admin"
                           ? "bg-slate-300 text-slate-400 dark:bg-slate-700"
-                          : "bg-slate-500 shadow-md hover:bg-slate-600 text-white dark:text-black dark:bg-slate-300 dark:hover:bg-slate-400"
-                      } duration-150 py-0 px-2 rounded `}
+                          : "bg-slate-700 hover:bg-slate-800 duration-100 dark:bg-slate-300 dark:hover:bg-slate-200 text-white rounded-lg font-bold dark:text-black"
+                      }  py-0 px-2 rounded `}
                     >
                       Make Admin
                     </button>

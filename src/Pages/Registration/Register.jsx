@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import lottieUser from "../../assets/LottieJson/userLogin.json";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Lottie from "react-lottie-player";
+import UpdateTitle from "../../Hooks/UpdateTitle";
 
 const Register = () => {
   const { update, googleSignIn, handleRegister } = useContext(AuthContext);
@@ -63,6 +64,7 @@ const Register = () => {
 
   return (
     <div className="w-full px-4 md:px-auto relative mt-2 md:mt-0 md:min-h-screen">
+      <UpdateTitle title="Reister"></UpdateTitle>;
       <div className="hidden md:block">
         <Lottie loop={false} play animationData={lottieUser} />;
       </div>
@@ -215,9 +217,7 @@ const Register = () => {
           />
         </form>
       )}
-
       <p className="text-center">Sign in with </p>
-
       <div className="my-4 max-w-[32rem] w-full mx-auto flex items-center justify-center gap-5">
         <button
           onClick={handleGoogleSigin}

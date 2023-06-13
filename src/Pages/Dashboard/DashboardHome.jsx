@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Title from "../../Components/Title";
 
 const DashboardHome = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
-      <h1>from .....</h1>
+      <Title
+        title={
+          user.role == "admin"
+            ? "Admin Panel"
+            : user.role === "instructor"
+            ? "Instructor Dashboard"
+            : "Student Dashboard"
+        }
+      ></Title>
     </div>
   );
 };
