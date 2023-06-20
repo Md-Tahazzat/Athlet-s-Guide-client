@@ -25,7 +25,7 @@ const Instructors = () => {
     <div className="my-10">
       <UpdateTitle title="Instructors"></UpdateTitle>
       <Title title="Our Instructors"></Title>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 my-20 md:mx-20">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 md:my-20 md:mx-20">
         {instructors.map((instructor, index) => (
           <div
             key={index}
@@ -36,11 +36,8 @@ const Instructors = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title">{instructor.name}</h2>
-              <p
-                className="flex items-center
-               gap-2"
-              >
-                <FaEnvelope></FaEnvelope> {instructor.email}
+              <p className="flex items-center text-base gap-2">
+                <FaEnvelope></FaEnvelope> {instructor.user}
               </p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 const UpdateTitle = ({ title }) => {
-  document.title = `Athlet's Guide | ${title}`;
+  document.title = `${title} | Athlete's Guide`;
 };
 
 export default UpdateTitle;

@@ -40,6 +40,8 @@ const AuthProvider = ({ children }) => {
           .then((result) => {
             localStorage.setItem("access-token", result.token);
             currentUser.role = result?.role;
+            console.log(currentUser);
+
             setUser(currentUser);
             setLoading(false);
           });

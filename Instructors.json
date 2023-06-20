@@ -1,223 +1,209 @@
-[
+[[
   {
     "name": "John Smith",
     "email": "johnsmith@gmail.com",
-    "image": "https://i.ibb.co/k5SB1zq/football-coach.jpg",
-    "classes": [
-      {
-        "name": "Football",
-        "image": "https://i.ibb.co/9VSm5qr/Foorball-teaching.jpg",
-        "available_seats": 12,
-        "price": 900,
-        "students": 10,
-        "student_list": [
-          {"email": "user1@example.com"},
-          {"email": "user2@example.com"},
-          {"email": "user3@example.com"},
-          {"email": "user4@example.com"},
-          {"email": "user5@example.com"},
-          {"email": "user6@example.com"},
-          {"email": "user7@example.com"},
-          {"email": "user8@example.com"},
-          {"email": "user9@example.com"},
-          {"email": "user10@example.com"}
-        ],
-        "status": "approved"
-      }
-    ]
+    "image": "https://i.ibb.co/k5SB1zq/football-coach.jpg"
   },
   {
     "name": "Micheal Davis",
     "email": "michealdavis@gmail.com",
-    "image": "https://i.ibb.co/DpCJfH0/basket-ball-coach.jpg",
-    "classes": [
-      {
-        "name": "Basketball",
-        "image": "https://i.ibb.co/WWHTSnF/basket-ball.jpg",
-        "available_seats": 8,
-        "price": 700,
-        "students": 14,
-        "student_list": [
-          {"email": "user1@example.com"},
-          {"email": "user2@example.com"},
-          {"email": "user3@example.com"},
-          {"email": "user4@example.com"},
-          {"email": "user5@example.com"},
-          {"email": "user6@example.com"},
-          {"email": "user7@example.com"},
-          {"email": "user8@example.com"},
-          {"email": "user9@example.com"},
-          {"email": "user10@example.com"},
-          {"email": "user11@example.com"},
-          {"email": "user12@example.com"},
-          {"email": "user13@example.com"},
-          {"email": "user14@example.com"}
-        ],
-        "status": "approved"
-      }
-    ]
+    "image": "https://i.ibb.co/DpCJfH0/basket-ball-coach.jpg"
   },
   {
     "name": "Sarah Johnson",
     "email": "sarahjohnson@gmail.com",
-    "image": "https://i.ibb.co/30zXMqd/tennis-coach.jpg",
-    "classes": [
-      {
-        "name": "Tennis",
-        "image": "https://i.ibb.co/Cz2dpnm/tennis-ball.jpg",
-        "available_seats": 15,
-        "price": 800,
-        "students": 12,
-        "student_list": [
-          {"email": "user1@example.com"},
-          {"email": "user2@example.com"},
-          {"email": "user3@example.com"},
-          {"email": "user4@example.com"},
-          {"email": "user5@example.com"},
-          {"email": "user6@example.com"},
-          {"email": "user7@example.com"},
-          {"email": "user8@example.com"},
-          {"email": "user9@example.com"},
-          {"email": "user10@example.com"},
-          {"email": "user11@example.com"},
-          {"email": "user12@example.com"},
-          {"email": "user13@example.com"},
-          {"email": "user14@example.com"},
-          {"email": "user15@example.com"}
-        ],
-        "status": "approved"
-      }
-    ]
+    "image": "https://i.ibb.co/30zXMqd/tennis-coach.jpg"
   },
   {
     "name": "Emil Thompson",
     "email": "emilthompson@gmail.com",
-    "image": "https://i.ibb.co/c3bh6j9/badminton-coach.jpg",
-    "classes": [
-      {
-        "name": "Badminton",
-        "image": "https://i.ibb.co/kDXngB1/badminton.jpg",
-        "available_seats": 20,
-        "price": 600,
-        "students": 8,
-        "student_list": [
-          {"email": "user1@example.com"},
-          {"email": "user2@example.com"},
-          {"email": "user3@example.com"},
-          {"email": "user4@example.com"},
-          {"email": "user5@example.com"},
-          {"email": "user6@example.com"},
-          {"email": "user7@example.com"},
-          {"email": "user8@example.com"}
-        ],
-        "status": "approved"
-      }
-    ]
+    "image": "https://i.ibb.co/c3bh6j9/badminton-coach.jpg"
   },
   {
     "name": "Robert Johnson",
     "email": "robertjohnson@gmail.com",
-    "image": "https://i.ibb.co/0fVDxkr/goalf-coach.jpg",
-    "classes": [
-      {
-        "name": "Golf",
-        "image": "https://i.ibb.co/HBWDK1R/golf-ball.jpg",
-        "available_seats": 12,
-        "price": 1200,
-        "students": 6,
-        "student_list": [
-          {"email": "user1@example.com"},
-          {"email": "user2@example.com"},
-          {"email": "user3@example.com"},
-          {"email": "user4@example.com"},
-          {"email": "user5@example.com"},
-          {"email": "user6@example.com"}
-        ],
-        "status": "approved"
-      }
-    ]
+    "image": "https://i.ibb.co/0fVDxkr/goalf-coach.jpg"
   },
   {
     "name": "Ronald Pawl",
     "email": "ronaldpawl@gmail.com",
-    "image": "https://i.ibb.co/cFwv5pc/baseball-coach.jpg",
-    "classes": [
-      {
-        "name": "Baseball",
-        "image": "https://i.ibb.co/H7wQv7f/baseball.jpg",
-        "available_seats": 19,
-        "price": 750,
-        "students": 5,
-        "student_list": [
-          {"email": "user1@example.com"},
-          {"email": "user2@example.com"},
-          {"email": "user3@example.com"},
-          {"email": "user4@example.com"},
-          {"email": "user5@example.com"}
-        ],
-        "status": "approved"
-      }
-    ]
+    "image": "https://i.ibb.co/cFwv5pc/baseball-coach.jpg"
   },
   {
     "name": "David Lee",
     "email": "davidlee@gmail.com",
-    "image": "https://i.ibb.co/n3kQgWD/martial-art-coach.jpg",
-    "classes": [
-      {
-        "name": "Martial Arts",
-        "image": "https://i.ibb.co/jHK4LLZ/martial-art.jpg",
-        "available_seats": 15,
-        "price": 600,
-        "students": 8,
-        "student_list": [
-          {"email": "user1@example.com"},
-          {"email": "user2@example.com"},
-          {"email": "user3@example.com"},
-          {"email": "user4@example.com"},
-          {"email": "user5@example.com"},
-          {"email": "user6@example.com"},
-          {"email": "user7@example.com"},
-          {"email": "user8@example.com"}
-        ],
-        "status": "approved"
-      }
-    ]
+    "image": "https://i.ibb.co/n3kQgWD/martial-art-coach.jpg"
   },
   {
     "name": "Alex Wilson",
     "email": "alexwilson@gmail.com",
-    "image": "https://i.ibb.co/Bc8LP0z/american-football-coach.jpg",
-    "classes": [
-      {
-        "name": "American Football",
-        "image": "https://i.ibb.co/bN3J647/american-football.jpg",
-        "available_seats": 13,
-        "price": 700,
-        "students": 11,
-        "student_list": [
-          {"email": "user1@example.com"},
-          {"email": "user2@example.com"},
-          {"email": "user3@example.com"},
-          {"email": "user4@example.com"},
-          {"email": "user5@example.com"},
-          {"email": "user6@example.com"},
-          {"email": "user7@example.com"},
-          {"email": "user8@example.com"},
-          {"email": "user9@example.com"},
-          {"email": "user10@example.com"},
-          {"email": "user11@example.com"}
-        ],
-        "status": "approved"
-      }
-    ]
+    "image": "https://i.ibb.co/Bc8LP0z/american-football-coach.jpg"
+  }
+],[
+  {
+    "name": "American Football",
+    "image": "https://i.ibb.co/bN3J647/american-football.jpg",
+    "instructor_email":"alexwilson@gmail.com",
+    "available_seats": 13,
+    "price": 700,
+    "students": 11,
+    "student_list": [
+      {"email": "user1@example.com"},
+      {"email": "user2@example.com"},
+      {"email": "user3@example.com"},
+      {"email": "user4@example.com"},
+      {"email": "user5@example.com"},
+      {"email": "user6@example.com"},
+      {"email": "user7@example.com"},
+      {"email": "user8@example.com"},
+      {"email": "user9@example.com"},
+      {"email": "user10@example.com"},
+      {"email": "user11@example.com"}
+    ],
+    "status": "approved"
+  },
+  {
+    "name": "Martial Arts",
+    "image": "https://i.ibb.co/jHK4LLZ/martial-art.jpg",
+    "instructor_email": "davidlee@gmail.com",
+    "available_seats": 15,
+    "price": 600,
+    "students": 8,
+    "student_list": [
+      {"email": "user1@example.com"},
+      {"email": "user2@example.com"},
+      {"email": "user3@example.com"},
+      {"email": "user4@example.com"},
+      {"email": "user5@example.com"},
+      {"email": "user6@example.com"},
+      {"email": "user7@example.com"},
+      {"email": "user8@example.com"}
+    ],
+    "status": "approved"
+  },
+  {
+    "name": "Baseball",
+    "image": "https://i.ibb.co/H7wQv7f/baseball.jpg",
+    "instructor_email": "ronaldpawl@gmail.com",
+    "available_seats": 19,
+    "price": 750,
+    "students": 5,
+    "student_list": [
+      {"email": "user1@example.com"},
+      {"email": "user2@example.com"},
+      {"email": "user3@example.com"},
+      {"email": "user4@example.com"},
+      {"email": "user5@example.com"}
+    ],
+    "status": "approved"
+  },
+  {
+    "name": "Golf",
+    "image": "https://i.ibb.co/HBWDK1R/golf-ball.jpg",
+    "instructor_email": "robertjohnson@gmail.com",
+    "available_seats": 12,
+    "price": 1200,
+    "students": 6,
+    "student_list": [
+      {"email": "user1@example.com"},
+      {"email": "user2@example.com"},
+      {"email": "user3@example.com"},
+      {"email": "user4@example.com"},
+      {"email": "user5@example.com"},
+      {"email": "user6@example.com"}
+    ],
+    "status": "approved"
+  },
+  {
+    "name": "Badminton",
+    "image": "https://i.ibb.co/kDXngB1/badminton.jpg",
+    "instructor_email": "emilthompson@gmail.com",
+    "available_seats": 20,
+    "price": 600,
+    "students": 8,
+    "student_list": [
+      {"email": "user1@example.com"},
+      {"email": "user2@example.com"},
+      {"email": "user3@example.com"},
+      {"email": "user4@example.com"},
+      {"email": "user5@example.com"},
+      {"email": "user6@example.com"},
+      {"email": "user7@example.com"},
+      {"email": "user8@example.com"}
+    ],
+    "status": "approved"
+  },
+  {
+    "name": "Basketball",
+    "image": "https://i.ibb.co/WWHTSnF/basket-ball.jpg",
+    "instructor_email": "michealdavis@gmail.com",
+    "available_seats": 8,
+    "price": 700,
+    "students": 14,
+    "student_list": [
+      {"email": "user1@example.com"},
+      {"email": "user2@example.com"},
+      {"email": "user3@example.com"},
+      {"email": "user4@example.com"},
+      {"email": "user5@example.com"},
+      {"email": "user6@example.com"},
+      {"email": "user7@example.com"},
+      {"email": "user8@example.com"},
+      {"email": "user9@example.com"},
+      {"email": "user10@example.com"},
+      {"email": "user11@example.com"},
+      {"email": "user12@example.com"},
+      {"email": "user13@example.com"},
+      {"email": "user14@example.com"}
+    ],
+    "status": "approved"
+  },
+  {
+    "name": "Football",
+    "image": "https://i.ibb.co/9VSm5qr/Foorball-teaching.jpg",
+    "instructor_email": "johnsmith@gmail.com",
+    "available_seats": 12,
+    "price": 900,
+    "students": 10,
+    "student_list": [
+      {"email": "user1@example.com"},
+      {"email": "user2@example.com"},
+      {"email": "user3@example.com"},
+      {"email": "user4@example.com"},
+      {"email": "user5@example.com"},
+      {"email": "user6@example.com"},
+      {"email": "user7@example.com"},
+      {"email": "user8@example.com"},
+      {"email": "user9@example.com"},
+      {"email": "user10@example.com"}
+    ],
+    "status": "approved"
+  },
+  {
+    "name": "Tennis",
+    "image": "https://i.ibb.co/Cz2dpnm/tennis-ball.jpg",
+    "instructor_email": "sarahjohnson@gmail.com",
+    "available_seats": 15,
+    "price": 800,
+    "students": 12,
+    "student_list": [
+      {"email": "user1@example.com"},
+      {"email": "user2@example.com"},
+      {"email": "user3@example.com"},
+      {"email": "user4@example.com"},
+      {"email": "user5@example.com"},
+      {"email": "user6@example.com"},
+      {"email": "user7@example.com"},
+      {"email": "user8@example.com"},
+      {"email": "user9@example.com"},
+      {"email": "user10@example.com"},
+      {"email": "user11@example.com"},
+      {"email": "user12@example.com"},
+      {"email": "user13@example.com"},
+      {"email": "user14@example.com"},
+      {"email": "user15@example.com"}
+    ],
+    "status": "approved"
   }
 ]
-
-
-
-
-
-
-
-
+]

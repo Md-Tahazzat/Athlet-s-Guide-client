@@ -13,8 +13,6 @@ const Classes = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useContext(AuthContext);
-  // TODO: user role must be dynamic
-  // const user = { role: "student" };
   const instance = UseAxiosSecure();
 
   // get all the instructors data
@@ -29,14 +27,6 @@ const Classes = () => {
     return <Loading></Loading>;
   }
   const handleSelect = (el) => {
-    Swal.fire({
-      title: "processing...",
-      allowOutsideClick: false,
-      showConfirmButton: false,
-      onBeforeOpen: () => {
-        Swal.showLoading();
-      },
-    });
     if (!user) {
       Swal.fire({
         title: "Please login to continue!!",
@@ -44,36 +34,46 @@ const Classes = () => {
         showCancelButton: false,
       });
       navigate("/login", { state: { from: location?.pathname } });
-    }
-    const classDetails = {
-      instructor: el?.instructor,
-      instructor_email: el?.instructor_email,
-      class_name: el?.name,
-      price: el?.price,
-      class_image: el?.image,
-    };
-    instance
-      .patch(`/selectedClasses?email=${user?.email}`, classDetails)
-      .then((data) => {
-        Swal.close();
-        if (data.alreadySelected) {
-          Swal.fire({
-            icon: "warning",
-            title: "Already Selected!",
-          });
-        } else if (data.modifiedCount) {
-          Swal.fire({
-            icon: "success",
-            title: "Success!",
-            text: "Successfully selected",
-          });
-          refetch();
-        }
+    } else {
+      Swal.fire({
+        title: "processing...",
+        allowOutsideClick: false,
+        showConfirmButton: false,
       });
+      Swal.showLoading();
+      const { instructor, instructor_email, name, price, image, _id } = el;
+      const classDetails = {
+        user: user.email,
+        instructor,
+        instructor_email,
+        class_name: name,
+        class_image: image,
+        price,
+        class_id: _id,
+      };
+      instance
+        .put(`/selectedClasses?email=${user?.email}`, classDetails)
+        .then((data) => {
+          Swal.close();
+          if (data.alreadySelected) {
+            Swal.fire({
+              icon: "warning",
+              title: "Already Selected!",
+            });
+          } else if (data.insertedId) {
+            Swal.fire({
+              icon: "success",
+              title: "Success!",
+              text: "Successfully selected",
+            });
+            refetch();
+          }
+        });
+    }
   };
   return (
     <div className="my-10 text-lg">
-      <UpdateTitle title="Classes"></UpdateTitle>;
+      <UpdateTitle title="Classes"></UpdateTitle>
       <Title title="All Classes"></Title>
       <div className="md:my-20 md:mx-20">
         {allClasses.map((el, index) => (

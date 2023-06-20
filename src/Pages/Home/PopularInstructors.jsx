@@ -15,6 +15,7 @@ const PopularInstructors = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  console.log(popularInstructor);
   return (
     <section className="mb-16 md:mb-24 lg:mb-44 w-full">
       <Title title="Popular Instructors"></Title>
@@ -22,7 +23,7 @@ const PopularInstructors = () => {
         {popularInstructor.map((instructor, indx) => (
           <div
             key={indx + 99}
-            className="hover:-translate-y-2 duration-200 shadow-2xl border border-slate-800 dark:border-slate-200 rounded-md"
+            className="hover:-translate-y-2 duration-200 shadow-2xl border rounded-md"
           >
             <img src={instructor.image} className="rounded-md" alt="" />
           </div>

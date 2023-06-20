@@ -9,7 +9,7 @@ const UseAxiosSecure = () => {
   const { handleLogOut } = useContext(AuthContext);
 
   const instance = axios.create({
-    baseURL: "https://summer-camp-server-two.vercel.app",
+    baseURL: "http://localhost:5000",
   });
 
   instance.interceptors.request.use(

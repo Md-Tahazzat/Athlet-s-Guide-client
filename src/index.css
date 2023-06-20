@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-#background-image {
-  background-image: url("https://i.ibb.co/NCZdrSK/sports-background-design-abstract-modern-260nw-2071798712-1.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
 .link-style {
   @apply hover:text-slate-900 dark:hover:text-slate-50;
 }
@@ -29,15 +22,6 @@
 
 #img-container div:hover > div h1 {
   @apply block;
-}
-
-/* to create parallex design */
-#parallex-1 {
-  background-image: url("https://i.ibb.co/THwZtL8/all-sports-background.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /* hover effect for dashboard list items */
